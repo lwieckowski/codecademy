@@ -19,11 +19,10 @@ const pAequorFacotry = (specimenNum, dna) => {
 	dna: dna,
 	mutate() {
 	    const randBaseId = Math.floor(Math.random() * dna.length);
-	    const oldBase = this.dna[randBaseId];
-	    let newBase;
-	    do {
+	    let newBase = returnRandBase();
+	    while (newBase === this.dna[randBaseId]) {
 		newBase = returnRandBase();
-	    } while (newBase === oldBase);
+	    }
 	    this.dna[randBaseId] = newBase;
 	},
 	compareDNA(that) {
